@@ -68,6 +68,7 @@ def draw_player(x, y, img):
 score_value = 0
 score_value2 = 0
 font = pygame.font.SysFont('freesansbold.ttf', 32)
+game_win_font = pygame.font.SysFont("ROBOTO", 80)
 textX = 700
 textY = 10
 textX1 = 10
@@ -99,26 +100,26 @@ def show_score2(x,y):
     score2 = font.render("Score: " +str(score_value2),True,(255,255,255))
     screen.blit(score2,(x,y))
 def game_over():
-    go = font.render("GAME OVER", True, (255,255,255))
+    go = font.render("GAME OVER" , True, (255,255,255),)
     screen.blit(go, (290, 300))
 
 def game_won():
-    won_text = font.render("Player 1 Wins!", True, (255, 255, 255))
-    screen.blit(won_text, (350, 300))
+    won_text = game_win_font.render("Player 1 Wins!", True, (174, 167, 167))
+    screen.blit(won_text, (200, 300))
     pygame.display.update()
-    pygame.time.delay(10000)  # Display the message for 2 seconds (adjust as needed)
+    pygame.time.delay(5000)  # Display the message for 5 seconds
 
 def game_won2():
-    won_text = font.render("Player 2 Wins!", True, (255, 255, 255))
-    screen.blit(won_text, (350, 300))
+    won_text = game_win_font.render("Player 2 Wins!", True, (174, 167, 167))
+    screen.blit(won_text, (200, 300))
     pygame.display.update()
     pygame.time.delay(10000)  # Display the message for 2 seconds (adjust as needed)
 
 
 # Load background music
-# pygame.mixer.music.load("[8-Bit] Itachi's Theme (Senya).mp3")  # Replace with your music file
-# pygame.mixer.music.set_volume(0.25)  # Set the volume (0.0 to 1.0)
-# pygame.mixer.music.play(-1)  # -1 means loop indefinitely
+pygame.mixer.music.load("[8-Bit] Itachi's Theme (Senya).mp3")  # Replace with your music file
+pygame.mixer.music.set_volume(0.25)  # Set the volume (0.0 to 1.0)
+pygame.mixer.music.play(-1)  # -1 means loop indefinitely
 
 # Create a clock object to control frame rate
 Clock = pygame.time.Clock()
